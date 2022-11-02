@@ -1,5 +1,12 @@
 # MeQuilibrium 
 
+
+This is setup to run chromedriver locally `https://chromedriver.chromium.org/downloads`
+
+If you are running windows, put the `chromedriver` binary in `C:\\chromedriver.exe`
+If you are running unix based, put the `chromedriver` binary in `~/chromedriver.exe` 
+ **NOTE** I have not verified this works in unix, the code is currently hard coded expecting to find chromedriver in the aforementioned locations
+
 To build jar: `mvn clean install`
 
 To run tests:  in terminal, navigate to this project and run `java -cp target/meQDemo.jar com.meq.Main`
@@ -25,7 +32,8 @@ As part of the CICD pipeline, the result of this executable could be checked for
 
 2. Can navigate to....
 
-
+**NOTE** As I do not fully understand the process which generates the widgets on the dashboard, I have not coded tests to validate their content or existence.
+Were I to be part of the team, I would learn how this works, and discuss the best ways to validate the dynamic content loading.
 
 ## Login test
 

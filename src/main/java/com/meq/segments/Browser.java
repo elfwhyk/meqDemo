@@ -31,9 +31,16 @@ public class Browser {
         // todo anything needed for browserstack
 //        final String seleniumUrl = "https:// "; // TODO
 
-        System.setProperty("webdriver.chrome.driver",
-                "C:\\Users\\elfwh\\Documents\\chromedriver.exe");
+        String operatingSystem = System.getProperty("os.name").toLowerCase();
+        System.out.println("running on operating system: " + operatingSystem);
 
+        if(operatingSystem.contains("windows")) {
+            System.setProperty("webdriver.chrome.driver",
+                    "C:\\chromedriver.exe");
+        } else {
+            System.setProperty("webdriver.chrome.driver",
+                    "~/chromedriver.exe");
+        }
 
         // build webdriver object
         CompletableFuture<WebDriver> futureWebDriver = new CompletableFuture<>();

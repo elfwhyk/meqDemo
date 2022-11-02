@@ -8,7 +8,7 @@ import static com.meq.WebElements.loginButton;
 
 public class LoginSegments {
 
-    private WebDriver browser;
+    private final WebDriver browser;
 
     public LoginSegments(WebDriver browser) {
         this.browser = browser;
@@ -22,20 +22,15 @@ public class LoginSegments {
         Helpers.waitForExistence(browser, By.id("email"), 15 );
     }
 
-    // TODO login segments
     public void enterAndSubmitEmail(String emailAddress) {
         browser.findElement(By.id("email")).sendKeys(emailAddress);
         browser.findElement(By.id("qa-enter-email-continue")).click();
     }
 
-    // TODO login segments
-    public void enterAndSubmitPasswordShouldLandOnDashboard(String password) {
+    public void enterAndSubmitPasswordShouldLandOnDashboard(String password) throws InterruptedException {
         Helpers.waitForExistence(browser, By.id("password"), 15).sendKeys(password);
         browser.findElement(loginButton).click();
-        if(!browser.getCurrentUrl().equalsIgnoreCase("https://mymeq.com/my-meq/dashboard/#/my-meq/my-active-skill")) {
-            throw new AssertionError("Did not land on MeQ dashboard after successful login");
-        }
+        Helpers.waitForPageLoad(browser, "https://mymeq.com/my-meq/dashboard/#/my-meq/my-active-skill", 15);
     }
-
 
 }
