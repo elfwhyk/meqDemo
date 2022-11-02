@@ -24,13 +24,23 @@ As part of the CICD pipeline, the result of this executable could be checked for
 ## Basic FrontEnd  Browser test flexing the following functionality:
 
 1. can successfully login with known good credentials
-   2. cannot login with bad credentials
-      3. validate API response
-      4. check if this is secure 
-      5. can I snag a JWT from this request (are they using implicit vs authz code)
+   2. should land on dashboard
+3. NavBar navigation should work for each of the following:
+   4. Me
+      5. Profile
+      6. Skills Journey
+      6. Activities
+      7. Journal
+      8. Saved for Later
+   9. Discover
+      10. Browse All Topics
+      11. Skills
+      12. Activities
+      13. Cup of Calm Blog
+      14. Calm-Cast Videos
+      15. Meditations
 
-
-2. Can navigate to....
+The test will take a screenshot when it fails, grab console logs, and then close Browser cleanly.
 
 **NOTE** As I do not fully understand the process which generates the widgets on the dashboard, I have not coded tests to validate their content or existence.
 Were I to be part of the team, I would learn how this works, and discuss the best ways to validate the dynamic content loading.
@@ -61,3 +71,8 @@ Were I to be part of the team, I would learn how this works, and discuss the bes
 ## TODO
 
 1. gatling test of the various API endpoints to see how fast they fall over?
+2. collect network traffic history from the webBrowser
+3. create remote webDriver executor in AWS or BrowserStack
+4. run in a github actions pipeline
+5. introduce the concept of automation breaking failures vs attempting to continue execution on some failures
+   6. collect failures and report them in a list, instead of breaking on the first failure
