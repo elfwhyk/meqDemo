@@ -23,15 +23,15 @@ public class Main {
             meQSegments.enterAndSubmitEmail("shane.burgoon@gmail.com");
             meQSegments.enterAndSubmitPasswordShouldLandOnDashboard("K45ufJ4CfZLhyCb$");
         } catch (Throwable t) {
-            // take screenshot
             System.out.println("Failed doing some tests: " + t.getLocalizedMessage());
             t.printStackTrace();
-            if(browser != null) {
-                TakesScreenshot scrShot = ((TakesScreenshot) browser);
-                File SrcFile=scrShot.getScreenshotAs(OutputType.FILE);
-                File DestFile=new File(fileWithPath);
-                FileUtils.copyFile(SrcFile, DestFile);
-            }
+            // TODO take screenshot
+//            if(browser != null) {
+//                TakesScreenshot scrShot = ((TakesScreenshot) browser);
+//                File SrcFile=scrShot.getScreenshotAs(OutputType.FILE);
+//                File DestFile=new File(fileWithPath);
+//                FileUtils.copyFile(SrcFile, DestFile);
+//            }
 
         } finally {
             //        Browser.killWebDriver(browser);

@@ -1,8 +1,8 @@
 # MeQuilibrium 
 
-To build jar:
+To build jar: `mvn clean install`
 
-To run tests: 
+To run tests:  in terminal, navigate to this project and run `java -cp target/meQDemo.jar com.meq.Main`
 
 This is currently coded to run locally on an individual machine.
 
