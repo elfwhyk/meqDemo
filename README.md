@@ -23,22 +23,22 @@ As part of the CICD pipeline, the result of this executable could be checked for
 
 ## Basic FrontEnd  Browser test flexing the following functionality:
 
-1. can successfully login with known good credentials
-   2. should land on dashboard
-3. NavBar navigation should work for each of the following:
-   4. Me
-      5. Profile
-      6. Skills Journey
-      6. Activities
-      7. Journal
-      8. Saved for Later
-   9. Discover
-      10. Browse All Topics
-      11. Skills
-      12. Activities
-      13. Cup of Calm Blog
-      14. Calm-Cast Videos
-      15. Meditations
+- can successfully login with known good credentials
+  - should land on dashboard
+- NavBar navigation should work for each of the following:
+  - Me
+    - Profile
+    - Skills Journey
+    - Activities
+    - Journal
+    - Saved for Later
+  - Discover
+    - Browse All Topics
+    - Skills
+    - Activities
+    - Cup of Calm Blog
+    - Calm-Cast Videos
+    - Meditations
 
 The test will take a screenshot when it fails, grab console logs, and then close Browser cleanly.
 
@@ -47,24 +47,24 @@ Were I to be part of the team, I would learn how this works, and discuss the bes
 
 ## Login test
 
-1. navigate to `https://mymeq.com/`
-2. enter email address into field id = `email` type = `email` email = `shane.burgoon@gmail.com`
-   3. click `continue` buttonId = `qa-enter-email-continue`
-   4. should result in the same `https://mymeq.com/`
-   5. wait for password fieldId = `password` type = `password`
-      6. makes this request `https://mymeq.com/json/auth/email` with body `{"mail":"shane.burgoon@gmail.com"}:`
-6. enter password `K45ufJ4CfZLhyCb$`
-   7. click `Login` buttonId = `qa-enter-password-login`
-   8. oh look, a JWT `'eyJzdHJpbmciOiJMb2dpbiIsImhhc2giOiI5ZDYzMjJjMWY0ZDlkM2YzOGFlZDhiZmJlMGIyYmNhZGY2NmFkODJjMDA4NDc2ZmE2MjU0MWZhMDY5MTM4ZTk0In0='`
-   9. should land on `https://mymeq.com/my-meq/dashboard/#/my-meq/my-active-skill`
-   10. wait for what to load?
+- navigate to `https://mymeq.com/`
+- enter email address into field id = `email` type = `email` email = `shane.burgoon@gmail.com`
+  - click `continue` buttonId = `qa-enter-email-continue`
+  - should result in the same `https://mymeq.com/`
+    - wait for password fieldId = `password` type = `password`
+      - makes this request `https://mymeq.com/json/auth/email` with body `{"mail":"shane.burgoon@gmail.com"}:`
+- enter password `K45ufJ4CfZLhyCb$`
+  - click `Login` buttonId = `qa-enter-password-login`
+  - oh look, a JWT    `'eyJzdHJpbmciOiJMb2dpbiIsImhhc2giOiI5ZDYzMjJjMWY0ZDlkM2YzOGFlZDhiZmJlMGIyYmNhZGY2NmFkODJjMDA4NDc2ZmE2MjU0MWZhMDY5MTM4ZTk0In0='`
+  - should land on `https://mymeq.com/my-meq/dashboard/#/my-meq/my-active-skill`
+  - wait for what to load?
 
 
 ## Takeaways and questions
 
-1. hit 429 on login pretty quick, like 5 attempts in a minute
-   2. would benefit from a limit reset count in the headers so tests could throttle appropriately instead of making arbitrary waits
-   3. is this super prone to DDOS? what ddos protection is in place for the login? IP rate limiting only?
+- hit 429 on login pretty quick, like 5 attempts in a minute
+  - would benefit from a limit reset count in the headers so tests could throttle appropriately instead of making arbitrary waits
+  - is this super prone to DDOS? what ddos protection is in place for the login? IP rate limiting only?
       based on the fact I cannot login anymore, looks like its IP based. This is really easy to break using a distributed DDOS attack
       why is the failed login attempt a 200 with body instead of 401?
 
