@@ -4,7 +4,7 @@
 This is setup to run chromedriver locally `https://chromedriver.chromium.org/downloads`
 
 If you are running windows, put the `chromedriver` binary in `C:\\chromedriver.exe`
-If you are running unix based, put the `chromedriver` binary in `~/chromedriver.exe` 
+If you are running unix based, put the `chromedriver` binary in the root of this project for example `/Users/shane.burgoon/git/meqDemo-main/chromedriver.exe`
  **NOTE** I have not verified this works in unix, the code is currently hard coded expecting to find chromedriver in the aforementioned locations
 
 To build jar: `mvn clean install`
