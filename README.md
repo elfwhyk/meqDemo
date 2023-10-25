@@ -1,3 +1,21 @@
+
+# Upgrade
+
+The workflow under test is:
+  homepage -> open account -> enter profile information ->
+
+
+
+
+
+
+
+
+
+
+
+
+
 # MeQuilibrium 
 
 
