@@ -1,19 +1,22 @@
 package com.meq.segments.upgrade;
 
 import com.meq.BasePage;
+import com.meq.Helpers;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import static com.meq.segments.upgrade.OpenAccountAddressPage.openAccountAddressPageContinueButton;
+
 public class OpenAccountProfilePage extends BasePage {
 
-    private static final By openAccountProfilePageFirstName =
+    public static final By openAccountProfilePageFirstName =
             By.xpath("//input[@data-auto='fNameField']");
-    private static final By openAccountProfilePageLastName =
+    public static final By openAccountProfilePageLastName =
             By.xpath("//input[@data-auto='lNameField']");
 
-    private static final By openAccountProfilePageDob =
+    public static final By openAccountProfilePageDob =
             By.xpath("//input[@data-auto='dobField']");
-    private static final By openAccountProfilePageContinueButton =
+    public static final By openAccountProfilePageContinueButton =
             By.xpath("//button[@data-auto='piContinueButton']");
 
     // todo pull in from config loader
@@ -37,8 +40,9 @@ public class OpenAccountProfilePage extends BasePage {
         browser.findElement(openAccountProfilePageDob).sendKeys(dob);
     }
 
-    public void submitContinueAccountCreation() {
+    public OpenAccountAddressPage submitContinueAccountCreation() {
         browser.findElement(openAccountProfilePageContinueButton).click();
-
+        Helpers.waitForExistence(browser, openAccountAddressPageContinueButton, 15 );
+        return new OpenAccountAddressPage(browser);
     }
 }

@@ -3,9 +3,7 @@ package com.meq;
 import com.meq.segments.Browser;
 import com.meq.segments.NavBarSegments;
 import com.meq.segments.LoginSegments;
-import com.meq.segments.upgrade.HomePage;
-import com.meq.segments.upgrade.OpenAccountPage;
-import com.meq.segments.upgrade.OpenAccountProfilePage;
+import com.meq.segments.upgrade.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.logging.LogEntry;
 import org.openqa.selenium.logging.LogType;
@@ -52,8 +50,14 @@ public class Main {
             openAccountProfilePage.enterFirstName("shane");
             openAccountProfilePage.enterLastName("Burgoon");
             openAccountProfilePage.enterDob("07/08/1991");
-            openAccountProfilePage.submitContinueAccountCreation();
+            OpenAccountAddressPage openAccountAddressPage = openAccountProfilePage.submitContinueAccountCreation();
 
+            openAccountAddressPage.enterStreet("5 72nd st");
+            openAccountAddressPage.enterPhone("8023438903");
+            OpenAccountCreatePasswordPage openAccountCreatePasswordPage = openAccountAddressPage.submitContinueAccountCreation();
+
+            openAccountCreatePasswordPage.enterPassword("CorrectHorseBatteryStaple$1");
+            openAccountCreatePasswordPage.submitContinueAccountCreation();
             browser.wait(10000);
 
         } catch (Throwable t) {
