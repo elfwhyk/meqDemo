@@ -27,7 +27,7 @@ If you are running unix based, put the `chromedriver` binary in the root of this
 
 To build jar: `mvn clean install`
 
-To run tests:  in terminal, navigate to this project and run `java -cp target/meQDemo.jar com.meq.Main`
+To run tests:  in terminal, navigate to this project and run `java -cp target/meQDemo.jar com.simpleFormApp.Main`
 
 This is currently coded to run locally on an individual machine.
 

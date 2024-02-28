@@ -1,11 +1,9 @@
-package com.meq.segments;
+package com.simpleFormApp.segments;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import java.net.URL;
 import java.util.Arrays;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.TimeUnit;
@@ -27,9 +25,6 @@ public class Browser {
         chromeOptions.setCapability("name", "TODODynamicTestName");
         chromeOptions.setCapability("tags", Arrays.asList("invoker", "TODOinvoker"));
         chromeOptions.setCapability("build", "TODOGithash");
-
-        // todo anything needed for browserstack
-//        final String seleniumUrl = "https:// "; // TODO
 
         String operatingSystem = System.getProperty("os.name").toLowerCase();
         System.out.println("running on operating system: " + operatingSystem);
@@ -80,8 +75,6 @@ public class Browser {
         return webDriver;
     }
 
-
-    // TODO method for shutting down Browserstack connection
     public static void killWebDriver(WebDriver webDriver) {
         if (webDriver != null) {
             try {

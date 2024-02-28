@@ -1,4 +1,4 @@
-package com.meq;
+package com.simpleFormApp;
 
 import org.openqa.selenium.By;
 

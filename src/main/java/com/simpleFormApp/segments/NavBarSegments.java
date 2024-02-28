@@ -1,6 +1,6 @@
-package com.meq.segments;
+package com.simpleFormApp.segments;
 
-import com.meq.Helpers;
+import com.simpleFormApp.Helpers;
 import org.openqa.selenium.By;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;

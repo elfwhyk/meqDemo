@@ -1,10 +1,10 @@
-package com.meq.segments;
+package com.simpleFormApp.segments;
 
-import com.meq.Helpers;
+import com.simpleFormApp.Helpers;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import static com.meq.WebElements.loginButton;
+import static com.simpleFormApp.WebElements.loginButton;
 
 public class LoginSegments {
 
