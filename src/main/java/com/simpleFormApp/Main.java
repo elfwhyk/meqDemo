@@ -1,13 +1,14 @@
 package com.simpleFormApp;
 
+import com.simpleFormApp.pages.CreateTicketPage;
+import com.simpleFormApp.pages.HomePage;
 import com.simpleFormApp.segments.Browser;
-import com.simpleFormApp.segments.NavBarSegments;
-import com.simpleFormApp.segments.LoginSegments;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.logging.LogEntry;
 import org.openqa.selenium.logging.LogType;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Date;
 
 public class Main {
@@ -16,27 +17,22 @@ public class Main {
         try {
             // TODO some sort of config manager for test data, secure credentials, etc
             browser = Browser.getBrowserInstance();
-            LoginSegments meQSegments = new LoginSegments(browser);
-            NavBarSegments navBarSegments = new NavBarSegments(browser);
 
-            meQSegments.navigateToMeqLogin();
-            meQSegments.enterAndSubmitEmail("shane.burgoon@gmail.com");
-            meQSegments.enterAndSubmitPasswordShouldLandOnDashboard("K45ufJ4CfZLhyCb$");
+            HomePage homePage = new HomePage(browser);
+            CreateTicketPage createTicketPage = new CreateTicketPage(browser);
 
-            // TODO validate navBar exists from each page, navigation from each page may be overkill
+            homePage.navigateToHomePage();
+            homePage.clickCreateTicket();
 
-            navBarSegments.navigateToDiscoverAllTopicsPage();
-            navBarSegments.navigateToDiscoverSkillsPage();
-            navBarSegments.navigateToDiscoverActivitiesPage();
-            navBarSegments.navigateToDiscoverCupOfCalmPage();
-            navBarSegments.navigateToDiscoverCalmCastPage();
-            navBarSegments.navigateToDiscoverMeditationsPage();
-            navBarSegments.navigateToProfilePage();
-            navBarSegments.navigateToSkillsPage();
-            navBarSegments.navigateToActivitiesPage();
-            navBarSegments.navigateToJournalPage();
-            navBarSegments.navigateToSavedForLaterPage();
-
+            // TODO ENUM for applicationArea
+            createTicketPage.createTicket("TestTicket1",
+                    "Settings",
+                    "Test Description %^&*g",
+                    false,
+                    "10/10/1991",
+                    "test@test.com",
+                    "",
+                    Arrays.asList("Bug"));
 
 
         } catch (Throwable t) {
