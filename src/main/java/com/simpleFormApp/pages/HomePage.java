@@ -31,13 +31,16 @@ public class HomePage {
 
     public void deleteTicketByTitle(String ticketTitle) {
         browser.findElement(findTicketByTitle(ticketTitle));
+
     }
 
-    // TODO
+    // TODO find the row in the page table for a given ticket title
     private By findTicketByTitle(String ticketTitle) {
         // this will return the first ticket with the given title from top to bottom of the page. Not ideal...
         // TODO iterate over the table, checking each row for the title desired. I think given the HTML this may be the only way?
         return By.cssSelector("");
     }
+
+    // would this be better as its own page object for a table row? TBD
 
 }
